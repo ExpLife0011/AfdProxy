@@ -2,8 +2,8 @@
 
 ### A SOCKS5-configured syscall hook that allows transparent TCP proxying on Windows for IPv4 and IPv6.
 
-### Why not an LSP?
-#### LSPs are ok, unless your library calls the base provider in which case your filter won't work.
+### Why not an LSP/WFP?
+#### LSPs and WFP are ok for a lot of cases, unless your library calls the base provider in which case your filter won't work.
 
 ### Why not a driver-level or virtual network device?
 #### Sometimes losing that context or otherwise being able to negotiate special sockets (e.g. TLS) in specific ways is a dealbreaker.
