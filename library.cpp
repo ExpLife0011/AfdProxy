@@ -38,7 +38,7 @@ NTSTATUS NTAPI HK_NtDeviceIoControlFile(HANDLE FileHandle, HANDLE Event, PIO_APC
 		}
 	}
 	// Generally the first thing a tcp socket does - set up our socks EP properly.
-	else if (IoControlCode == IOCTL_AFD_SELECT) {
+	else if (IoControlCode == IOCTL_AFD_POLL) {
 		if (!ConnectionDB::ConnectProxy((int)FileHandle)) {
 		}
 
@@ -54,7 +54,7 @@ NTSTATUS NTAPI HK_NtDeviceIoControlFile(HANDLE FileHandle, HANDLE Event, PIO_APC
 	// 1. We'll check to see if the proxy needs to be set up.
 	// 2. We'll spoof the address data on return to make it look like
 	//    our socket is connected to another ep.
-	else if (IoControlCode == IOCTL_AFD_GETINFO) {
+	else if (IoControlCode == IOCTL_AFD_GET_REMOTE_ADDRESS) {
 		ConnectionDB::ConnectProxy((int)FileHandle);
 		unsigned char* spoof_data = nullptr;
 		unsigned int spoof_length = 0;
