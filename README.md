@@ -1,4 +1,4 @@
-#AfdProxy
+# AfdProxy
 
 ### A SOCKS5-configured syscall hook that allows transparent TCP proxying on Windows for IPv4 and IPv6.
 
